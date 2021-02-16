@@ -39,19 +39,15 @@ int main(int argc, char *argv[])
     qDebug()<<shortest;
     // TODO: using foreach and QStringList show all names with "lynn" suffix
     QString separator = "";
-    QString result = "";
+    QList<QString> lynnList;
     for (auto &s: names)
     {
-        if (s.contains("lynn"))
+        if (s.endsWith("lynn"))
         {
-            result += separator + s;
-            if (separator.isEmpty())
-            {
-                separator = ", ";
-            }
+            lynnList << s;
         }
     }
-    qDebug()<<result;
+    qDebug()<<lynnList.join(", ");
     // and print it separated by ',' as one string
 
 
@@ -69,12 +65,8 @@ int main(int argc, char *argv[])
     }
     // TODO: 2. Using other QList
     qDebug()<<"reverse with list";
-    QList rnames = names;
-    while (!rnames.empty())
-    {
-        qDebug()<<rnames.back();
-        rnames.pop_back();
-    }
+    QList rnames(names.rbegin(), names.rend());
+    qDebug()<<rnames.join(", ");
     // TODO: 3. Without other containers
     qDebug()<<"reverse with riterator";
     for(auto it = names.rbegin(); it!= names.rend(); it++)
