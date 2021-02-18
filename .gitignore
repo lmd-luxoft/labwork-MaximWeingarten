@@ -1,2 +1,4 @@
 build-*/
 *.pro.user*
+qt-03-containers-and-qstring/qt-03-containers-and-qstring.pro.user
+qt-02-qobject/qt-02-qobject.pro.user
